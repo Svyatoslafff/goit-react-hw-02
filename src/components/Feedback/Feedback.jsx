@@ -3,6 +3,7 @@
 export default function Feedback({
     feedbacks: { good, neutral, bad },
     totalFeedback,
+    positiveFeedback,
 }) {
     return (
         <div>
@@ -21,13 +22,7 @@ export default function Feedback({
                         <p>Total: {totalFeedback}</p>
                     </li>
                     <li>
-                        <p>
-                            Positive:{' '}
-                            {Math.round(
-                                ((good + neutral) / totalFeedback) * 100
-                            )}
-                            %
-                        </p>
+                        <p>Positive: {positiveFeedback}%</p>
                     </li>
                 </ul>
             ) : (

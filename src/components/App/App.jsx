@@ -17,6 +17,7 @@ function App() {
     });
     const { good, neutral, bad } = feedbackCount;
     const totalFeedback = good + neutral + bad;
+    let positiveFeedback = Math.round(((good + neutral) / totalFeedback) * 100);
 
     // effects
     useEffect(() => {
@@ -45,7 +46,11 @@ function App() {
                 handleClick={updateFeedback}
                 totalFeedback={totalFeedback}
             />
-            <Feedback feedbacks={feedbackCount} totalFeedback={totalFeedback} />
+            <Feedback
+                feedbacks={feedbackCount}
+                totalFeedback={totalFeedback}
+                positiveFeedback={positiveFeedback}
+            />
         </>
     );
 }
