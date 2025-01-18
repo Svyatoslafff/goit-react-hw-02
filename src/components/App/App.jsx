@@ -5,6 +5,7 @@ import Options from '../Options/Options.jsx';
 import Feedback from '../Feedback/Feedback.jsx';
 
 function App() {
+    // variables and states
     const [feedbackCount, setfeedbackCount] = useState(() => {
         const localFeedback = JSON.parse(
             window.localStorage.getItem('feedback')
@@ -14,11 +15,15 @@ function App() {
         }
         return { good: 0, neutral: 0, bad: 0 };
     });
+    const { good, neutral, bad } = feedbackCount;
+    const totalFeedback = good + neutral + bad;
 
+    // effects
     useEffect(() => {
         window.localStorage.setItem('feedback', JSON.stringify(feedbackCount));
     }, [feedbackCount]);
 
+    // functions
     function updateFeedback(feedback, reset) {
         if (reset === true) {
             setfeedbackCount({ good: 0, neutral: 0, bad: 0 });
@@ -32,8 +37,7 @@ function App() {
         }
     }
 
-    const totalFeedback = good + neutral + bad;
-
+    // markup
     return (
         <>
             <Description />

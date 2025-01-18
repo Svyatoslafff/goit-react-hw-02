@@ -31,7 +31,7 @@ export default function Feedback({
                     </li>
                 </ul>
             ) : (
-                <p>No feedbacks yet</p>
+                <p>No feedback yet</p>
             )}
         </div>
     );

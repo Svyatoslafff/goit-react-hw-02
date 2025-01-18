@@ -1,5 +1,5 @@
 import css from './Options.module.scss';
-export default function Options({ handleClick }) {
+export default function Options({ handleClick, totalFeedback }) {
     return (
         <div>
             <ul className={css.buttonsList}>
@@ -30,15 +30,17 @@ export default function Options({ handleClick }) {
                         Bad
                     </button>
                 </li>
-                <li>
-                    <button
-                        onClick={() => {
-                            handleClick('', true);
-                        }}
-                    >
-                        Reset
-                    </button>
-                </li>
+                {totalFeedback > 0 && (
+                    <li>
+                        <button
+                            onClick={() => {
+                                handleClick('', true);
+                            }}
+                        >
+                            Reset
+                        </button>
+                    </li>
+                )}
             </ul>
         </div>
     );
